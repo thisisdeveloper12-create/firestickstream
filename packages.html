@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="dark" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FFB020'/%3E%3Cstop offset='.52' stop-color='%23FF6A00'/%3E%3Cstop offset='1' stop-color='%23E62E04'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cg transform='rotate(-9 19 32)'%3E%3Crect x='11.5' y='15' width='15' height='34' rx='4.5' fill='white'/%3E%3Cpath d='M16.2 26.5 23.2 32 16.2 37.5Z' fill='%23F2620F'/%3E%3C/g%3E%3Crect x='33' y='10' width='19' height='43' rx='8.5' fill='white'/%3E%3Ccircle cx='42.5' cy='16.5' r='1.8' fill='%23F2620F'/%3E%3Ccircle cx='42.5' cy='26.5' r='6' fill='none' stroke='%23F2620F' stroke-width='2'/%3E%3Ccircle cx='42.5' cy='26.5' r='2' fill='%23F2620F'/%3E%3Ccircle cx='38.3' cy='38' r='1.7' fill='%23F2620F'/%3E%3Ccircle cx='46.7' cy='38' r='1.7' fill='%23F2620F'/%3E%3Ccircle cx='38.3' cy='44.5' r='1.7' fill='%23F2620F'/%3E%3Ccircle cx='46.7' cy='44.5' r='1.7' fill='%23F2620F'/%3E%3C/svg%3E" />
-<title>IPTV Packages &amp; Pricing UK — Best IPTV Plans | Firestick Stream</title>
+<title>IPTV Subscription UK — 1, 3, 6 &amp; 12 Month Plans, No Contract</title>
 <meta name="description" content="Firestick Stream packages: 1, 3, 6 and 12-month IPTV plans from £20. Every plan includes 28,000+ channels, 80,000+ movies & series, EPG and catch-up." />
 <link rel="canonical" href="https://firestick-stream.vercel.app/packages.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Firestick Stream" />
 <meta property="og:locale" content="en_GB" />
-<meta property="og:title" content="IPTV Packages &amp; Pricing UK — Best IPTV Plans | Firestick Stream" />
+<meta property="og:title" content="IPTV Subscription UK — 1, 3, 6 &amp; 12 Month Plans, No Contract" />
 <meta property="og:description" content="Firestick Stream packages: 1, 3, 6 and 12-month IPTV plans from £20. Every plan includes 28,000+ channels, 80,000+ movies &amp; series, EPG and catch-up." />
 <meta property="og:url" content="https://firestick-stream.vercel.app/packages.html" />
 <meta property="og:image" content="https://firestick-stream.vercel.app/og-image.jpg" />
@@ -20,7 +20,7 @@
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:alt" content="Firestick Stream — IPTV for Firestick and Smart TV, with the orange stick-and-remote logo" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="IPTV Packages &amp; Pricing UK — Best IPTV Plans | Firestick Stream" />
+<meta name="twitter:title" content="IPTV Subscription UK — 1, 3, 6 &amp; 12 Month Plans, No Contract" />
 <meta name="twitter:description" content="Firestick Stream packages: 1, 3, 6 and 12-month IPTV plans from £20. Every plan includes 28,000+ channels, 80,000+ movies &amp; series, EPG and catch-up." />
 <meta name="twitter:image" content="https://firestick-stream.vercel.app/og-image.jpg" />
 <meta name="twitter:image:alt" content="Firestick Stream — IPTV for Firestick and Smart TV, with the orange stick-and-remote logo" />
@@ -112,6 +112,8 @@ header.site{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);-webkit-
 .navlinks a.btn-primary:hover{color:#fff}
 .navlinks a.btn-primary.active::after{display:none}
 .nav-cta{padding:10px 18px !important;font-size:14px}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:10px;color:var(--text);border-radius:10px;flex:none}
+.nav-toggle svg{width:26px;height:26px;display:block}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:13px 24px;font-weight:800;font-size:15px;border:1px solid transparent;cursor:pointer;transition:transform .18s, box-shadow .18s, background .18s;text-align:center}
@@ -306,7 +308,7 @@ footer a:hover{color:var(--text)}
 .keywords{margin-top:28px;font-size:13px;border-top:1px solid var(--line);padding-top:20px}
 
 /* Float + toast */
-.chat-float{position:fixed;right:18px;bottom:22px;z-index:65;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--violet-deep),var(--magenta));display:grid;place-items:center;box-shadow:0 10px 26px color-mix(in srgb, var(--violet) 45%, transparent);color:#fff}
+.chat-float{position:fixed;right:18px;bottom:22px;z-index:65;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(37,211,102,.45);color:#fff}
 .chat-float:hover{transform:translateY(-2px)}
 .chat-float svg{width:27px;height:27px;fill:#fff}
 .toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%) translateY(20px);background:#141B33;color:#fff;padding:12px 19px;border-radius:999px;font-weight:700;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:80;box-shadow:0 14px 34px rgba(0,0,0,.3);max-width:88vw;text-align:center}
@@ -322,7 +324,9 @@ footer a:hover{color:var(--text)}
   .orderbox,.speedbox{grid-template-columns:1fr}
   .footgrid{grid-template-columns:1fr 1fr}
   .nav{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:12px;row-gap:10px}
-  .navlinks{position:static;flex-wrap:wrap;gap:6px 16px;align-items:center;width:100%;order:3;border-top:1px solid var(--line);padding-top:10px}
+  .nav-toggle{display:grid;place-items:center}
+  .navlinks{display:none}
+  .navlinks.open{display:flex;position:static;flex-wrap:wrap;gap:6px 16px;align-items:center;width:100%;order:3;border-top:1px solid var(--line);padding-top:10px}
   .navlinks a{padding:4px 2px;font-size:14.5px;color:var(--muted)}
   .nav-cta{padding:9px 16px !important}
 }
@@ -346,7 +350,8 @@ footer a:hover{color:var(--text)}
 <header class="site">
   <div class="wrap nav">
     <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB020"/><stop offset=".52" stop-color="#FF6A00"/><stop offset="1" stop-color="#E62E04"/></linearGradient></defs><g transform="rotate(-9 14.5 25)"><rect x="8" y="12" width="13" height="26" rx="4" fill="url(#logoGrad)"/><path d="M12.2 20.8 18.2 25 12.2 29.2Z" fill="#fff"/></g><rect x="26" y="7" width="16" height="34" rx="7.5" fill="url(#logoGrad)"/><circle cx="34" cy="12.6" r="1.4" fill="#fff" opacity=".92"/><circle cx="34" cy="20.8" r="5.1" fill="none" stroke="#fff" stroke-width="1.7"/><circle cx="34" cy="20.8" r="1.7" fill="#fff"/><circle cx="30.9" cy="29.6" r="1.3" fill="#fff"/><circle cx="37.1" cy="29.6" r="1.3" fill="#fff"/><circle cx="30.9" cy="34.2" r="1.3" fill="#fff"/><circle cx="37.1" cy="34.2" r="1.3" fill="#fff"/></svg></span>Firestick<b>Stream</b></a>
-    <nav class="navlinks" aria-label="Main pages">
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mainnav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <nav class="navlinks" id="mainnav" aria-label="Main pages">
       <a href="index.html">Home</a><a href="packages.html" class="active">Packages</a><a href="features.html">Features</a><a href="channels.html">Channels</a><a href="setup.html">Setup</a><a href="guides.html">Guides</a><a href="faq.html">FAQ</a>
       <a class="btn btn-primary nav-cta" href="trial.html">Free Trial</a>
     </nav>
@@ -358,19 +363,20 @@ footer a:hover{color:var(--text)}
     <div class="wrap">
       <nav class="crumbs"><a href="index.html">Home</a><span>/</span><span>Packages</span></nav>
       <div class="pill"><span class="dot"></span> Firestick Stream Packages</div>
-      <h1>Simple IPTV plans, priced for Earth</h1>
+      <h1>IPTV Subscription UK — 1, 3, 6 &amp; 12 Month Plans, No Contract</h1>
       <p>Every plan includes all channels, the full movies &amp; series library, EPG, catch-up and setup help. Start with a free 24-hour trial — no card needed.</p>
     </div>
   </div>
   <section style="background:var(--bg2)">
     <div class="wrap">
+      <div class="section-head" style="margin-bottom:22px"><h2>Monthly equivalents — £20, £10, £7.50 &amp; £5.42 per month</h2><p>1 month is £20 in total (£20/month), 3 months is £30 (£10/month), 6 months is £45 (£7.50/month) and 12 months is £65 (£5.42/month). The longer plans lower the monthly equivalent, so the 12-month annual-equivalent value is £5.42 per month. Every plan is prepaid with no contract.</p></div>
       <div class="pricing">
         <article class="price-card"><h2>1 Month</h2><div class="price">£20<small> total</small></div><p class="per-mo">£20.00 / month</p><ul class="tick"><li>28,000+ live channels</li><li>80,000+ movies &amp; series</li><li>HD &amp; 4K streams</li><li>1 connection included</li><li>Setup guidance</li></ul><a class="btn btn-primary" style="width:100%" href="trial.html?plan=1%20Month%20%E2%80%94%20%C2%A320">Choose 1 Month</a></article>
         <article class="price-card"><h2>3 Months</h2><div class="price">£30<small> total</small></div><p class="per-mo">£10.00 / month</p><ul class="tick"><li>28,000+ live channels</li><li>80,000+ movies &amp; series</li><li>HD &amp; 4K streams</li><li>1 connection included</li><li>Setup guidance</li></ul><a class="btn btn-primary" style="width:100%" href="trial.html?plan=3%20Months%20%E2%80%94%20%C2%A330">Choose 3 Months</a></article>
         <article class="price-card pop"><div class="badge">★ MOST POPULAR</div><h2>6 Months</h2><div class="price">£45<small> total</small></div><p class="per-mo">£7.50 / month</p><ul class="tick"><li>28,000+ live channels</li><li>80,000+ movies &amp; series</li><li>HD &amp; 4K streams</li><li>1 connection included</li><li>Priority setup guidance</li></ul><a class="btn btn-primary" style="width:100%" href="trial.html?plan=6%20Months%20%E2%80%94%20%C2%A345">Choose 6 Months</a></article>
         <article class="price-card"><div class="badge" style="background:linear-gradient(135deg,#0B7A55,#149A5B)">BEST VALUE</div><h2>12 Months</h2><div class="price">£65<small> total</small></div><p class="per-mo">£5.42 / month</p><ul class="tick"><li>28,000+ live channels</li><li>80,000+ movies &amp; series</li><li>HD &amp; 4K streams</li><li>1 connection included</li><li>Priority setup guidance</li></ul><a class="btn btn-primary" style="width:100%" href="trial.html?plan=12%20Months%20%E2%80%94%20%C2%A365">Choose 12 Months</a></article>
       </div>
-      <p class="price-note">Secure checkout · Instant email delivery · Extra connections for multi-room available — <a href="trial.html">ask when you claim your trial →</a></p>
+      <p class="price-note">Secure checkout · Instant email delivery · Every plan includes 1 connection — one screen streaming at a time. <a href="trial.html">Start with a free trial →</a></p>
 
       <div style="margin-top:44px">
         <div class="section-head" style="margin-bottom:26px">
@@ -385,7 +391,7 @@ footer a:hover{color:var(--text)}
         <div class="card" style="margin-top:18px">
           <h3>What every plan includes — and what it never includes</h3>
           <p style="margin-bottom:10px">Every plan — 1 month included — gets all 28,000+ live channels, the full 80,000+ movies &amp; series library, the 7-day EPG, catch-up on major channels, HD and 4K streams, and setup help from the UK team. There are no hidden extras: no activation fee, no EPG fee, no “premium sports” add-on, and no price rise mid-plan. The price you see is the total you pay for the whole period.</p>
-          <p>One connection is included, which means one screen streaming at a time. If two TVs in the house regularly watch different things at once — match in the lounge, film in the bedroom — add an extra connection when you claim your trial rather than sharing one login, which causes exactly the buffering people blame on their broadband. When a plan ends it simply stops; there is no contract and no auto-renewal surprise, and renewing takes a minute from the link in your original email.</p>
+          <p>One connection is included, which means one screen streaming at a time. Current plans are 1 connection, which means one screen streaming at a time — you can be signed in on more than one device, but only one can play at once. Sharing one login across two TVs playing at the same time will interrupt playback. When a plan ends it simply stops; there is no contract and it does not auto-renew, and renewing takes a minute from the link in your original email.</p>
         </div>
         <div style="text-align:center;margin-top:26px">
           <img src="og-image.jpg" alt="Firestick Stream IPTV packages — the orange stick-and-remote logo on a dark background" width="1200" height="630" loading="lazy" style="width:100%;max-width:720px;height:auto;border-radius:18px;border:1px solid var(--line);margin:0 auto" />
@@ -413,9 +419,29 @@ footer a:hover{color:var(--text)}
   </div>
 </footer>
 
-<a class="chat-float" href="trial.html" aria-label="Claim your free trial">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+<a class="chat-float" href="https://wa.me/447782271589" target="_blank" rel="noopener" aria-label="Chat on WhatsApp — +44 7782 271589">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
 </a>
 
+<script>
+(function(){
+  "use strict";
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('mainnav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    var t = e.target;
+    while (t && t.tagName !== 'A') t = t.parentElement;
+    if (t) {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
 </body>
 </html>

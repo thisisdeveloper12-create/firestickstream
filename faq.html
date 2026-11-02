@@ -66,7 +66,7 @@
       "name": "Can I watch on more than one TV?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Every plan includes 1 connection as standard. Need more TVs? Extra connections are available — mention multi-room when you claim your trial and we'll quote you."
+        "text": "Current plans are 1 connection, so only one screen can stream at a time. You can sign in on more than one device, but a second simultaneous stream needs a separate plan."
       }
     },
     {
@@ -90,8 +90,33 @@
       "name": "Can I watch live football and PPV events?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — the sports line-up includes the main UK sports channels carrying Premier League, F1, cricket and boxing, and PPV events are included where they're broadcast on the channels in your package."
+        "text": "Televised Premier League fixtures are on Sky Sports and TNT Sports, and Formula 1 is on Sky Sports F1. Check the EPG for the televised schedule."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a VPN for IPTV?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Only if ISP throttling is the actual cause of buffering. A VPN adds overhead and can slow a Firestick, so try cache, restart, 5GHz or Ethernet and a speed test first."}
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when my plan ends? Does it auto-renew?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Access stops at the end of the prepaid period. Plans do not auto-renew and no payment is taken automatically."}
+    },
+    {
+      "@type": "Question",
+      "name": "How much does IPTV cost in the UK?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Firestick Stream costs £20 for 1 month, £30 for 3 months (£10/month), £45 for 6 months (£7.50/month) and £65 for 12 months (£5.42/month), on 1 connection with no contract."}
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free IPTV trial UK and do I need a card?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes, a free 24-hour trial with full access. No card is needed and there is no contract."}
+    },
+    {
+      "@type": "Question",
+      "name": "What speed do I need for 4K IPTV?",
+      "acceptedAnswer": {"@type": "Answer", "text": "25 Mbps or more for stable 4K, and at least 15 Mbps for HD, measured at the TV."}
     }
   ]
 }
@@ -137,6 +162,8 @@ header.site{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);-webkit-
 .navlinks a.btn-primary:hover{color:#fff}
 .navlinks a.btn-primary.active::after{display:none}
 .nav-cta{padding:10px 18px !important;font-size:14px}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:10px;color:var(--text);border-radius:10px;flex:none}
+.nav-toggle svg{width:26px;height:26px;display:block}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:13px 24px;font-weight:800;font-size:15px;border:1px solid transparent;cursor:pointer;transition:transform .18s, box-shadow .18s, background .18s;text-align:center}
@@ -331,7 +358,7 @@ footer a:hover{color:var(--text)}
 .keywords{margin-top:28px;font-size:13px;border-top:1px solid var(--line);padding-top:20px}
 
 /* Float + toast */
-.chat-float{position:fixed;right:18px;bottom:22px;z-index:65;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--violet-deep),var(--magenta));display:grid;place-items:center;box-shadow:0 10px 26px color-mix(in srgb, var(--violet) 45%, transparent);color:#fff}
+.chat-float{position:fixed;right:18px;bottom:22px;z-index:65;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(37,211,102,.45);color:#fff}
 .chat-float:hover{transform:translateY(-2px)}
 .chat-float svg{width:27px;height:27px;fill:#fff}
 .toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%) translateY(20px);background:#141B33;color:#fff;padding:12px 19px;border-radius:999px;font-weight:700;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:80;box-shadow:0 14px 34px rgba(0,0,0,.3);max-width:88vw;text-align:center}
@@ -347,7 +374,9 @@ footer a:hover{color:var(--text)}
   .orderbox,.speedbox{grid-template-columns:1fr}
   .footgrid{grid-template-columns:1fr 1fr}
   .nav{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:12px;row-gap:10px}
-  .navlinks{position:static;flex-wrap:wrap;gap:6px 16px;align-items:center;width:100%;order:3;border-top:1px solid var(--line);padding-top:10px}
+  .nav-toggle{display:grid;place-items:center}
+  .navlinks{display:none}
+  .navlinks.open{display:flex;position:static;flex-wrap:wrap;gap:6px 16px;align-items:center;width:100%;order:3;border-top:1px solid var(--line);padding-top:10px}
   .navlinks a{padding:4px 2px;font-size:14.5px;color:var(--muted)}
   .nav-cta{padding:9px 16px !important}
 }
@@ -371,7 +400,8 @@ footer a:hover{color:var(--text)}
 <header class="site">
   <div class="wrap nav">
     <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB020"/><stop offset=".52" stop-color="#FF6A00"/><stop offset="1" stop-color="#E62E04"/></linearGradient></defs><g transform="rotate(-9 14.5 25)"><rect x="8" y="12" width="13" height="26" rx="4" fill="url(#logoGrad)"/><path d="M12.2 20.8 18.2 25 12.2 29.2Z" fill="#fff"/></g><rect x="26" y="7" width="16" height="34" rx="7.5" fill="url(#logoGrad)"/><circle cx="34" cy="12.6" r="1.4" fill="#fff" opacity=".92"/><circle cx="34" cy="20.8" r="5.1" fill="none" stroke="#fff" stroke-width="1.7"/><circle cx="34" cy="20.8" r="1.7" fill="#fff"/><circle cx="30.9" cy="29.6" r="1.3" fill="#fff"/><circle cx="37.1" cy="29.6" r="1.3" fill="#fff"/><circle cx="30.9" cy="34.2" r="1.3" fill="#fff"/><circle cx="37.1" cy="34.2" r="1.3" fill="#fff"/></svg></span>Firestick<b>Stream</b></a>
-    <nav class="navlinks" aria-label="Main pages">
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mainnav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <nav class="navlinks" id="mainnav" aria-label="Main pages">
       <a href="index.html">Home</a><a href="packages.html">Packages</a><a href="features.html">Features</a><a href="channels.html">Channels</a><a href="setup.html">Setup</a><a href="guides.html">Guides</a><a href="faq.html" class="active">FAQ</a>
       <a class="btn btn-primary nav-cta" href="trial.html">Free Trial</a>
     </nav>
@@ -390,14 +420,19 @@ footer a:hover{color:var(--text)}
   <section style="background:var(--bg2)">
     <div class="wrap">
       <div class="faq">
-        <details open><summary>What devices does Firestick Stream work on?</summary><p>Amazon Firestick &amp; Fire TV, Samsung and LG Smart TVs, Android TV/boxes, Android and iOS phones/tablets, Apple TV, Windows, Mac, MAG and Enigma2. If it can run an IPTV player, we can set you up.</p></details>
+        <details open><summary>What devices work — does Firestick Stream work on my TV?</summary><p>Amazon Firestick &amp; Fire TV, Samsung and LG Smart TVs (use IBO Player on Samsung/LG — see the <a href="guide-iptv-samsung-lg-smart-tv.html" style="color:var(--violet);font-weight:800">Samsung &amp; LG setup guide</a>), Android TV/boxes, Android and iOS phones/tablets, Apple TV, Windows, Mac, MAG and Enigma2. If it can run an IPTV player, we can set you up.</p></details>
         <details><summary>How fast is activation?</summary><p>Usually within 5 minutes. You'll receive login details and setup instructions by email, including the Firestick walkthrough.</p></details>
         <details><summary>Do you offer a free trial?</summary><p>Yes — a 24-hour free trial so you can test channels, sports and picture quality on your own device and internet before paying. No card required. <a href="trial.html" style="color:var(--violet);font-weight:800">Claim it on the Free Trial page →</a></p></details>
         <details><summary>What internet speed do I need?</summary><p>At least 15 Mbps for HD and 25 Mbps+ for stable 4K. A 5 GHz Wi-Fi connection or an Ethernet adapter for Firestick gives the smoothest live sport. Try the speed checker on the <a href="setup.html" style="color:var(--violet);font-weight:800">Setup page</a> to see what your connection can handle.</p></details>
-        <details><summary>Can I watch on more than one TV?</summary><p>Every plan includes 1 connection as standard. Need more TVs? Extra connections are available — mention multi-room when you claim your trial and we'll quote you.</p></details>
+        <details><summary>Can I watch on more than one TV at once?</summary><p>Current plans are 1 connection, so only one screen can stream at a time on a plan. You can install the player and sign in on more than one TV or device, but if a second screen starts playing, the first will stop. For two TVs watching different things at the same time, you would need a separate plan for the second screen.</p></details>
         <details><summary>Is there a contract?</summary><p>No contract. Plans are prepaid for 1, 3, 6 or 12 months and renew only if you choose. Longer plans simply lower the monthly price.</p></details>
-        <details><summary>Xtream Codes vs M3U — which should I use?</summary><p>Both load the same channels. Xtream Codes (server URL + username + password) is easier — it auto-loads your EPG and VOD. M3U is a single playlist link, handy for apps that don't support Xtream. We provide both, so use whichever your app supports.</p></details>
-        <details><summary>Can I watch live football and PPV events?</summary><p>Yes — the sports line-up includes the main UK sports channels carrying Premier League, F1, cricket and boxing, and PPV events are included where they're broadcast on the channels in your package.</p></details>
+        <details><summary>Xtream Codes vs M3U — which should I use?</summary><p>Both load the same channels. Xtream Codes (server URL + username + password) is easier — it auto-loads your EPG and VOD. M3U is a single playlist link, handy for apps that don't support Xtream, and the EPG needs a separate link with M3U. We provide both. Read the full <a href="guide-xtream-codes-vs-m3u.html" style="color:var(--violet);font-weight:800">Xtream Codes vs M3U guide</a>.</p></details>
+        <details><summary>Can I watch live football?</summary><p>Yes — televised Premier League fixtures are on Sky Sports and TNT Sports, and Formula 1 is on Sky Sports F1, alongside cricket and boxing on the sports channels in the line-up. Check the EPG for the televised schedule on the day.</p></details>
+        <details><summary>Do I need a VPN for IPTV?</summary><p>For most people, no. A VPN only helps if your internet provider is throttling streaming and that throttling is the actual cause of buffering — for example, a fast line where everything else works but IPTV slows at peak times. A VPN also adds overhead and can slow a Firestick down, so fix cache, restart, 5GHz/Wi-Fi or Ethernet and speed first. See the <a href="guide-fix-iptv-buffering-firestick.html" style="color:var(--violet);font-weight:800">buffering guide</a>.</p></details>
+        <details><summary>What happens when my plan ends? Does it auto-renew?</summary><p>When your plan ends, access simply stops. Plans do not auto-renew and no payment is taken automatically — you choose if and when to renew, using the link in your original email. There is no contract tying you in.</p></details>
+        <details><summary>How much does IPTV cost in the UK?</summary><p>At Firestick Stream, an IPTV subscription UK costs £20 for 1 month, £30 for 3 months (£10/month), £45 for 6 months (£7.50/month) and £65 for 12 months (£5.42/month). Every plan includes the same channels and library on 1 connection, with no contract. Prices elsewhere vary, so compare the total for the period and what is included, not just a headline monthly figure. See <a href="packages.html" style="color:var(--violet);font-weight:800">Packages</a>.</p></details>
+        <details><summary>Is there a free IPTV trial UK and do I need a card?</summary><p>Yes — Firestick Stream offers a free 24-hour IPTV trial UK with full access to all channels and the movies &amp; series library. No card is needed and there is no contract. Generate a request code on the <a href="trial.html" style="color:var(--violet);font-weight:800">Free Trial page</a> and quote it on WhatsApp or by email to activate.</p></details>
+        <details><summary>What speed do I need for 4K IPTV?</summary><p>You need 25 Mbps or more for stable 4K, and at least 15 Mbps for HD, measured at the TV. Use 5GHz Wi-Fi or wired Ethernet for live sport in 4K where you can, and try the checker on the <a href="setup.html" style="color:var(--violet);font-weight:800">Setup page</a>.</p></details>
       </div>
       <div class="page-nav"><div class="page-nav-inner"><a href="guides.html"><small>← Previous page</small><b>Guides</b></a><a class="next" href="trial.html"><small>Next page →</small><b>Free Trial</b></a></div></div>
     </div>
@@ -420,9 +455,29 @@ footer a:hover{color:var(--text)}
   </div>
 </footer>
 
-<a class="chat-float" href="trial.html" aria-label="Claim your free trial">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+<a class="chat-float" href="https://wa.me/447782271589" target="_blank" rel="noopener" aria-label="Chat on WhatsApp — +44 7782 271589">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
 </a>
 
+<script>
+(function(){
+  "use strict";
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('mainnav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    var t = e.target;
+    while (t && t.tagName !== 'A') t = t.parentElement;
+    if (t) {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
 </body>
 </html>

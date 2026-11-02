@@ -303,11 +303,14 @@ footer a:hover{color:var(--text)}
   .cats{grid-template-columns:1fr 1fr}
   .orderbox,.speedbox{grid-template-columns:1fr}
   .footgrid{grid-template-columns:1fr 1fr}
-  .nav{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:12px;row-gap:10px}
-  .nav-toggle{display:grid;place-items:center}
+  .nav{flex-wrap:wrap;height:auto;min-height:68px;padding-top:10px;padding-bottom:10px;row-gap:0}
+  .nav-toggle{display:grid;place-items:center;width:46px;height:46px;min-width:46px;padding:0;background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:12px;margin-left:auto;-webkit-tap-highlight-color:transparent}
+  .nav-toggle:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
   .navlinks{display:none}
-  .navlinks.open{display:flex;position:static;flex-wrap:wrap;gap:6px 16px;align-items:center;width:100%;order:3;border-top:1px solid var(--line);padding-top:10px}
-  .navlinks a{padding:4px 2px;font-size:14.5px;color:var(--muted)}
+  .navlinks.open{display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;position:static;width:100%;order:3;border-top:1px solid var(--line);margin-top:10px;padding:10px 0 6px}
+  .navlinks.open a{display:flex;align-items:center;width:100%;min-height:46px;padding:11px 10px;font-size:16px;color:var(--text);border-radius:10px}
+  .navlinks.open a.active::after{left:10px;right:auto;width:36px;bottom:5px}
+  .navlinks.open a.nav-cta{display:inline-flex;justify-content:center;width:100%;margin-top:8px;min-height:46px}
   .nav-cta{padding:9px 16px !important}
 }
 @media(max-width:600px){
@@ -369,17 +372,28 @@ footer a:hover{color:var(--text)}
   var btn = document.querySelector('.nav-toggle');
   var nav = document.getElementById('mainnav');
   if (!btn || !nav) return;
-  btn.addEventListener('click', function(){
-    var open = nav.classList.toggle('open');
+  function isOpen(){ return nav.classList.contains('open'); }
+  function setOpen(open){
+    nav.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    setOpen(!isOpen());
   });
   nav.addEventListener('click', function(e){
     var t = e.target;
     while (t && t.tagName !== 'A') t = t.parentElement;
-    if (t) {
-      nav.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
+    if (t) setOpen(false);
+  });
+  document.addEventListener('click', function(e){
+    if (!isOpen()) return;
+    var t = e.target;
+    if (nav.contains(t) || btn.contains(t)) return;
+    setOpen(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if ((e.key === 'Escape' || e.keyCode === 27) && isOpen()) setOpen(false);
   });
 })();
 </script>

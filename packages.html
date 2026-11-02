@@ -224,6 +224,7 @@ ul.tick li{display:flex;gap:10px;align-items:flex-start}
 ul.tick li::before{content:"✓";color:var(--green);font-weight:900;flex:none}
 .price-note{color:var(--muted);font-size:14px;margin-top:20px;text-align:center}
 .price-note a{color:var(--violet);font-weight:800}
+.wa-note{margin:10px 0 0;text-align:center;font-size:13px;font-weight:700;color:var(--muted)}
 
 /* Channels */
 .chan-search{max-width:520px;margin:0 auto 26px;position:relative}
@@ -323,11 +324,14 @@ footer a:hover{color:var(--text)}
   .cats{grid-template-columns:1fr 1fr}
   .orderbox,.speedbox{grid-template-columns:1fr}
   .footgrid{grid-template-columns:1fr 1fr}
-  .nav{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:12px;row-gap:10px}
-  .nav-toggle{display:grid;place-items:center}
+  .nav{flex-wrap:wrap;height:auto;min-height:68px;padding-top:10px;padding-bottom:10px;row-gap:0}
+  .nav-toggle{display:grid;place-items:center;width:46px;height:46px;min-width:46px;padding:0;background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:12px;margin-left:auto;-webkit-tap-highlight-color:transparent}
+  .nav-toggle:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
   .navlinks{display:none}
-  .navlinks.open{display:flex;position:static;flex-wrap:wrap;gap:6px 16px;align-items:center;width:100%;order:3;border-top:1px solid var(--line);padding-top:10px}
-  .navlinks a{padding:4px 2px;font-size:14.5px;color:var(--muted)}
+  .navlinks.open{display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;position:static;width:100%;order:3;border-top:1px solid var(--line);margin-top:10px;padding:10px 0 6px}
+  .navlinks.open a{display:flex;align-items:center;width:100%;min-height:46px;padding:11px 10px;font-size:16px;color:var(--text);border-radius:10px}
+  .navlinks.open a.active::after{left:10px;right:auto;width:36px;bottom:5px}
+  .navlinks.open a.nav-cta{display:inline-flex;justify-content:center;width:100%;margin-top:8px;min-height:46px}
   .nav-cta{padding:9px 16px !important}
 }
 @media(max-width:600px){
@@ -371,10 +375,10 @@ footer a:hover{color:var(--text)}
     <div class="wrap">
       <div class="section-head" style="margin-bottom:22px"><h2>Monthly equivalents — £20, £10, £7.50 &amp; £5.42 per month</h2><p>1 month is £20 in total (£20/month), 3 months is £30 (£10/month), 6 months is £45 (£7.50/month) and 12 months is £65 (£5.42/month). The longer plans lower the monthly equivalent, so the 12-month annual-equivalent value is £5.42 per month. Every plan is prepaid with no contract.</p></div>
       <div class="pricing">
-        <article class="price-card"><h2>1 Month</h2><div class="price">£20<small> total</small></div><p class="per-mo">£20.00 / month</p><ul class="tick"><li>28,000+ live channels</li><li>80,000+ movies &amp; series</li><li>HD &amp; 4K streams</li><li>1 connection included</li><li>Setup guidance</li></ul><a class="btn btn-primary" style="width:100%" href="trial.html?plan=1%20Month%20%E2%80%94%20%C2%A320">Choose 1 Month</a></article>
-        <article class="price-card"><h2>3 Months</h2><div class="price">£30<small> total</small></div><p class="per-mo">£10.00 / month</p><ul class="tick"><li>28,000+ live channels</li><li>80,000+ movies &amp; series</li><li>HD &amp; 4K streams</li><li>1 connection included</li><li>Setup guidance</li></ul><a class="btn btn-primary" style="width:100%" href="trial.html?plan=3%20Months%20%E2%80%94%20%C2%A330">Choose 3 Months</a></article>
-        <article class="price-card pop"><div class="badge">★ MOST POPULAR</div><h2>6 Months</h2><div class="price">£45<small> total</small></div><p class="per-mo">£7.50 / month</p><ul class="tick"><li>28,000+ live channels</li><li>80,000+ movies &amp; series</li><li>HD &amp; 4K streams</li><li>1 connection included</li><li>Priority setup guidance</li></ul><a class="btn btn-primary" style="width:100%" href="trial.html?plan=6%20Months%20%E2%80%94%20%C2%A345">Choose 6 Months</a></article>
-        <article class="price-card"><div class="badge" style="background:linear-gradient(135deg,#0B7A55,#149A5B)">BEST VALUE</div><h2>12 Months</h2><div class="price">£65<small> total</small></div><p class="per-mo">£5.42 / month</p><ul class="tick"><li>28,000+ live channels</li><li>80,000+ movies &amp; series</li><li>HD &amp; 4K streams</li><li>1 connection included</li><li>Priority setup guidance</li></ul><a class="btn btn-primary" style="width:100%" href="trial.html?plan=12%20Months%20%E2%80%94%20%C2%A365">Choose 12 Months</a></article>
+        <article class="price-card"><h2>1 Month</h2><div class="price">£20<small> total</small></div><p class="per-mo">£20.00 / month</p><ul class="tick"><li>28,000+ live channels</li><li>80,000+ movies &amp; series</li><li>HD &amp; 4K streams</li><li>1 connection included</li><li>Setup guidance</li></ul><a class="btn btn-primary" style="width:100%" href="https://wa.me/447782271589?text=Hi%20Firestick%20Stream%2C%20I%20want%20to%20subscribe%20to%20the%201%20Month%20plan%20(%C2%A320)." target="_blank" rel="noopener">Subscribe Now</a><p class="wa-note">via WhatsApp: +44 7782 271589</p></article>
+        <article class="price-card"><h2>3 Months</h2><div class="price">£30<small> total</small></div><p class="per-mo">£10.00 / month</p><ul class="tick"><li>28,000+ live channels</li><li>80,000+ movies &amp; series</li><li>HD &amp; 4K streams</li><li>1 connection included</li><li>Setup guidance</li></ul><a class="btn btn-primary" style="width:100%" href="https://wa.me/447782271589?text=Hi%20Firestick%20Stream%2C%20I%20want%20to%20subscribe%20to%20the%203%20Months%20plan%20(%C2%A330)." target="_blank" rel="noopener">Subscribe Now</a><p class="wa-note">via WhatsApp: +44 7782 271589</p></article>
+        <article class="price-card pop"><div class="badge">★ MOST POPULAR</div><h2>6 Months</h2><div class="price">£45<small> total</small></div><p class="per-mo">£7.50 / month</p><ul class="tick"><li>28,000+ live channels</li><li>80,000+ movies &amp; series</li><li>HD &amp; 4K streams</li><li>1 connection included</li><li>Priority setup guidance</li></ul><a class="btn btn-primary" style="width:100%" href="https://wa.me/447782271589?text=Hi%20Firestick%20Stream%2C%20I%20want%20to%20subscribe%20to%20the%206%20Months%20plan%20(%C2%A345)." target="_blank" rel="noopener">Subscribe Now</a><p class="wa-note">via WhatsApp: +44 7782 271589</p></article>
+        <article class="price-card"><div class="badge" style="background:linear-gradient(135deg,#0B7A55,#149A5B)">BEST VALUE</div><h2>12 Months</h2><div class="price">£65<small> total</small></div><p class="per-mo">£5.42 / month</p><ul class="tick"><li>28,000+ live channels</li><li>80,000+ movies &amp; series</li><li>HD &amp; 4K streams</li><li>1 connection included</li><li>Priority setup guidance</li></ul><a class="btn btn-primary" style="width:100%" href="https://wa.me/447782271589?text=Hi%20Firestick%20Stream%2C%20I%20want%20to%20subscribe%20to%20the%2012%20Months%20plan%20(%C2%A365)." target="_blank" rel="noopener">Subscribe Now</a><p class="wa-note">via WhatsApp: +44 7782 271589</p></article>
       </div>
       <p class="price-note">Secure checkout · Instant email delivery · Every plan includes 1 connection — one screen streaming at a time. <a href="trial.html">Start with a free trial →</a></p>
 
@@ -429,17 +433,28 @@ footer a:hover{color:var(--text)}
   var btn = document.querySelector('.nav-toggle');
   var nav = document.getElementById('mainnav');
   if (!btn || !nav) return;
-  btn.addEventListener('click', function(){
-    var open = nav.classList.toggle('open');
+  function isOpen(){ return nav.classList.contains('open'); }
+  function setOpen(open){
+    nav.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    setOpen(!isOpen());
   });
   nav.addEventListener('click', function(e){
     var t = e.target;
     while (t && t.tagName !== 'A') t = t.parentElement;
-    if (t) {
-      nav.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
+    if (t) setOpen(false);
+  });
+  document.addEventListener('click', function(e){
+    if (!isOpen()) return;
+    var t = e.target;
+    if (nav.contains(t) || btn.contains(t)) return;
+    setOpen(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if ((e.key === 'Escape' || e.keyCode === 27) && isOpen()) setOpen(false);
   });
 })();
 </script>

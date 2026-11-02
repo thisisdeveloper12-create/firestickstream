@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://firestick-stream.vercel.app/sitemap.xml
